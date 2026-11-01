@@ -1,0 +1,1068 @@
+{
+	"info": {
+		"_postman_id": "d76b62ea-40e0-4b41-a799-26c8f8242e1d",
+		"name": "FitPath Mid-Term",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "55690667",
+		"_collection_link": "https://barsene23-7797803.postman.co/workspace/Arsene's-Workspace~698802e0-2ac2-4d49-8543-520f5422f0cb/collection/55690667-d76b62ea-40e0-4b41-a799-26c8f8242e1d?action=share&source=collection_link&creator=55690667"
+	},
+	"item": [
+		{
+			"name": "A2 - Save fitness goal",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Endurance\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/training-rooms/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"training-rooms",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Save training room",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"roomNumber\": 5,\n  \"name\": \"Spare Room\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/training-rooms/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"training-rooms",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Save coach",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"Coach\",\n  \"phone\": \"0788999999\",\n  \"trainingRoom\": {\n    \"id\": \"{{roomId}}\"\n  },\n  \"fitnessGoals\": [\n    {\n      \"id\": \"{{goalStrengthId}}\"\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Save trainee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"New\",\n  \"lastName\": \"Trainee\",\n  \"memberCode\": \"FP-0999\",\n  \"email\": \"new@example.com\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/trainees/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"trainees",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Save workout plan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"startDate\": \"2026-12-15\",\n  \"daysPerWeek\": 4,\n  \"trainee\": {\n    \"id\": \"{{traineeId}}\"\n  },\n  \"coach\": {\n    \"id\": \"{{coach2Id}}\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Get all workout plans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Get workout plan by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/{{generatedPlanId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"{{generatedPlanId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Get workout plan by id (404)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/{{missingId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"{{missingId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Update workout plan",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"startDate\": \"2026-11-30\",\n  \"daysPerWeek\": 5\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/update/{{generatedPlanId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"update",
+						"{{generatedPlanId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A2 - Delete workout plan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/delete/{{abandonedPlanId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"delete",
+						"{{abandonedPlanId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B1 - Trainees by last name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/trainees/by-last-name?lastName=byusa",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"trainees",
+						"by-last-name"
+					],
+					"query": [
+						{
+							"key": "lastName",
+							"value": "byusa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B2 - Plans by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/by-status?status=GENERATED",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"by-status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "GENERATED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B3 - Plans between dates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/between?start=2026-10-01&end=2026-10-31",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"between"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2026-10-01"
+						},
+						{
+							"key": "end",
+							"value": "2026-10-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "C1 - Coaches by fitness goal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/by-fitness-goal?name=strength",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"by-fitness-goal"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "strength"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "C2 - Free training rooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/training-rooms/free",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"training-rooms",
+						"free"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "C3 - Unused fitness goals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/fitness-goals/unused",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"fitness-goals",
+						"unused"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "C4 - Trainees of coach",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/trainees/of-coach/{{coachId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"trainees",
+						"of-coach",
+						"{{coachId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "C4 - Trainees of coach (404)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/trainees/of-coach/{{missingId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"trainees",
+						"of-coach",
+						"{{missingId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D1 - Save plan (past date -> 400)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"startDate\": \"2020-01-01\",\n  \"daysPerWeek\": 3,\n  \"trainee\": {\n    \"id\": \"{{traineeId}}\"\n  },\n  \"coach\": {\n    \"id\": \"{{coachId}}\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D1 - Save plan (status ignored -> GENERATED)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"startDate\": \"2026-12-20\",\n  \"status\": \"ACTIVE\",\n  \"daysPerWeek\": 3,\n  \"trainee\": {\n    \"id\": \"{{traineeId}}\"\n  },\n  \"coach\": {\n    \"id\": \"{{coachId}}\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D1 - Save plan (same coach+date -> 409)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"startDate\": \"2026-12-20\",\n  \"daysPerWeek\": 3,\n  \"trainee\": {\n    \"id\": \"{{traineeId}}\"\n  },\n  \"coach\": {\n    \"id\": \"{{coachId}}\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/save",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D2 - Status GENERATED -> REVIEWED (200)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/{{generatedPlanId}}/status?status=REVIEWED",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"{{generatedPlanId}}",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "REVIEWED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D2 - Status ACTIVE -> GENERATED (400)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/{{activePlanId}}/status?status=GENERATED",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"{{activePlanId}}",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "GENERATED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D2 - Status (404)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/{{missingId}}/status?status=REVIEWED",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"{{missingId}}",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "REVIEWED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D3 - Add goal to coach (200)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/{{coachId}}/fitness-goals/{{goalFlexId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"{{coachId}}",
+						"fitness-goals",
+						"{{goalFlexId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D3 - Add goal again (409)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/{{coachId}}/fitness-goals/{{goalFlexId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"{{coachId}}",
+						"fitness-goals",
+						"{{goalFlexId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D3 - Goal not found (404)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/{{coachId}}/fitness-goals/{{missingId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"{{coachId}}",
+						"fitness-goals",
+						"{{missingId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D4 - Move coach to room 4 (200)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/{{coachId}}/training-room?roomNumber=4",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"{{coachId}}",
+						"training-room"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D4 - Room taken (409)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/{{coach2Id}}/training-room?roomNumber=4",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"{{coach2Id}}",
+						"training-room"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D4 - Room not found (404)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/coaches/{{coachId}}/training-room?roomNumber=99",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"coaches",
+						"{{coachId}}",
+						"training-room"
+					],
+					"query": [
+						{
+							"key": "roomNumber",
+							"value": "99"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "E1 - Save session log (201)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"exerciseName\": \"Squats\",\n  \"notes\": \"Three sets with 20 kg\",\n  \"repetitions\": 36\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/session-logs/save?workoutPlanId={{activePlanId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"session-logs",
+						"save"
+					],
+					"query": [
+						{
+							"key": "workoutPlanId",
+							"value": "{{activePlanId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "E1 - Save session log (not ACTIVE -> 400)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"exerciseName\": \"Squats\",\n  \"notes\": \"x\",\n  \"repetitions\": 10\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/session-logs/save?workoutPlanId={{generatedPlanId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"session-logs",
+						"save"
+					],
+					"query": [
+						{
+							"key": "workoutPlanId",
+							"value": "{{generatedPlanId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "E1 - Save session log (404)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"exerciseName\": \"Squats\",\n  \"notes\": \"x\",\n  \"repetitions\": 10\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/session-logs/save?workoutPlanId={{missingId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"session-logs",
+						"save"
+					],
+					"query": [
+						{
+							"key": "workoutPlanId",
+							"value": "{{missingId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "E2 - Session logs of trainee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/session-logs/trainee/{{memberCode}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"session-logs",
+						"trainee",
+						"{{memberCode}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "E3 - Delete session log",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/session-logs/delete/{{sessionLogId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"session-logs",
+						"delete",
+						"{{sessionLogId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "E3 - Delete plan that has logs (409)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/delete/{{activePlanId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"delete",
+						"{{activePlanId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "F1 - Plans per status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/stats/by-status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"stats",
+						"by-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "F2 - Cancel coach day",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/cancel-day?coachId={{coachId}}&date=2026-10-20",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"cancel-day"
+					],
+					"query": [
+						{
+							"key": "coachId",
+							"value": "{{coachId}}"
+						},
+						{
+							"key": "date",
+							"value": "2026-10-20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bonus 1 - Dashboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/dashboard/summary",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"summary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bonus 2 - Pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/workout-plans/page?page=0&size=5&sort=startDate,desc",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"workout-plans",
+						"page"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "sort",
+							"value": "startDate,desc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "coachId",
+			"value": "33333333-0000-0000-0000-000000000001"
+		},
+		{
+			"key": "coach2Id",
+			"value": "33333333-0000-0000-0000-000000000002"
+		},
+		{
+			"key": "goalStrengthId",
+			"value": "11111111-0000-0000-0000-000000000001"
+		},
+		{
+			"key": "goalFlexId",
+			"value": "11111111-0000-0000-0000-000000000004"
+		},
+		{
+			"key": "traineeId",
+			"value": "44444444-0000-0000-0000-000000000001"
+		},
+		{
+			"key": "roomId",
+			"value": "22222222-0000-0000-0000-000000000004"
+		},
+		{
+			"key": "generatedPlanId",
+			"value": "55555555-0000-0000-0000-000000000003"
+		},
+		{
+			"key": "reviewedPlanId",
+			"value": "55555555-0000-0000-0000-000000000002"
+		},
+		{
+			"key": "activePlanId",
+			"value": "55555555-0000-0000-0000-000000000001"
+		},
+		{
+			"key": "abandonedPlanId",
+			"value": "55555555-0000-0000-0000-000000000006"
+		},
+		{
+			"key": "sessionLogId",
+			"value": "PASTE_ID_FROM_E1_RESPONSE"
+		},
+		{
+			"key": "memberCode",
+			"value": "FP-0231"
+		},
+		{
+			"key": "missingId",
+			"value": "99999999-9999-9999-9999-999999999999"
+		}
+	]
+}
